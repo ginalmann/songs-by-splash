@@ -10,14 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f8f4ef;
-      --paper: #fffdf9;
-      --ink: #231f20;
-      --muted: #6f6666;
-      --accent: #a33a4f;
-      --accent-dark: #7c2639;
-      --line: #e8ddd6;
-      --shadow: 0 18px 50px rgba(57, 41, 43, 0.10);
+      --bg: #f7f2ea;
+      --paper: #fffaf3;
+      --ink: #201a1e;
+      --muted: #75686f;
+      --accent: #4a243b;
+      --accent-dark: #321627;
+      --champagne: #d6b77a;
+      --line: #e5d8c7;
+      --shadow: 0 18px 50px rgba(49, 28, 42, 0.12);
       --radius: 24px;
     }
 
@@ -43,9 +44,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(248, 244, 239, 0.92);
+      background: rgba(247, 242, 234, 0.94);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(232, 221, 214, 0.85);
+      border-bottom: 1px solid rgba(229, 216, 199, 0.88);
     }
 
     nav {
@@ -103,6 +104,7 @@
     }
 
     h1 span { color: var(--accent); }
+    .brand { color: var(--accent); }
 
     .hero p {
       font-size: 1.18rem;
@@ -135,7 +137,7 @@
 
     .btn.primary:hover { background: var(--accent-dark); }
     .btn.secondary { color: var(--accent); }
-    .btn.secondary:hover { background: #f3e6e9; }
+    .btn.secondary:hover { background: #eee2d3; }
 
     .hero-card {
       position: relative;
@@ -145,8 +147,8 @@
       box-shadow: var(--shadow);
       background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,.42), transparent 32%),
-        radial-gradient(circle at 75% 30%, rgba(160,51,79,.22), transparent 28%),
-        linear-gradient(135deg, #2b2427 0%, #7e4352 50%, #e8b6b0 100%);
+        radial-gradient(circle at 75% 30%, rgba(214,183,122,.28), transparent 28%),
+        linear-gradient(135deg, #201a1e 0%, #4a243b 54%, #d6b77a 100%);
       display: flex;
       align-items: end;
       padding: 36px;
@@ -203,7 +205,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 28px;
-      box-shadow: 0 10px 35px rgba(56, 40, 42, 0.05);
+      box-shadow: 0 10px 35px rgba(49, 28, 42, 0.06);
     }
 
     .card .num {
@@ -212,7 +214,7 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: #f3e6e9;
+      background: #eee2d3;
       color: var(--accent);
       font-weight: 800;
       margin-bottom: 18px;
@@ -222,7 +224,7 @@
     .card p { color: var(--muted); margin: 0; }
 
     .samples {
-      background: #2a2326;
+      background: #241720;
       color: white;
     }
 
@@ -240,7 +242,7 @@
     .sample-link {
       display: inline-block;
       margin-top: 8px;
-      color: #f3c4cd;
+      color: #e2c98f;
       font-weight: 700;
     }
 
@@ -427,18 +429,18 @@
         </div>
         <div class="grid-3">
           <div class="sample-card">
-            <h3>Wedding Story</h3>
-            <p>A witty, personal love story that builds toward an emotional wedding-day payoff.</p>
+            <h3>Friendship Tribute</h3>
+            <p><strong>Every Version of Us</strong><br>A song about a friendship that grows through every age, every chapter, and every version of who you become.</p>
             <a class="sample-link" href="#">Add sample →</a>
           </div>
           <div class="sample-card">
-            <h3>Anniversary Song</h3>
-            <p>A warm, nostalgic song built around the small details that made a relationship unforgettable.</p>
+            <h3>Love Story</h3>
+            <p><strong>Apartment Fifteen on Oleander</strong><br>A nostalgic love song about the place where young love, big dreams, and a lifetime of memories began.</p>
             <a class="sample-link" href="#">Add sample →</a>
           </div>
           <div class="sample-card">
-            <h3>Family Tribute</h3>
-            <p>A heartfelt keepsake for a parent, child, friend, or someone whose story deserves a song.</p>
+            <h3>Wedding Song</h3>
+            <p><strong>Kenny &amp; Lachie</strong><br>A personal wedding song built from the couple’s real story, shared memories, humor, and the moments that brought them here.</p>
             <a class="sample-link" href="#">Add sample →</a>
           </div>
         </div>
@@ -502,44 +504,51 @@
             <div class="eyebrow">Tell me your story</div>
             <h2>What should the song remember?</h2>
             <p>
-              The best songs come from the little things: where you met, the line they always say, the place you still think about, the joke only the two of you understand.
+              The best songs come from the little things—the place you met, something they always say, a memory you both still laugh about, or a moment you'll never forget. Give me the beginning. We'll create the rest together.
             </p>
             <p class="signature">Love, Splash 💋</p>
           </div>
 
           <div>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form action="https://formspree.io/f/xoevdwqr" method="POST">
               <div>
                 <label for="name">Your name</label>
-                <input id="name" name="name" type="text" required />
+                <input id="name" name="name" type="text" placeholder="First and last name" required />
               </div>
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
+                <input id="email" name="email" type="email" placeholder="Where should I contact you?" required />
               </div>
               <div>
                 <label for="occasion">What is the song for?</label>
-                <select id="occasion" name="occasion">
-                  <option>Wedding</option>
+                <select id="occasion" name="occasion" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>Wedding Song</option>
                   <option>Anniversary</option>
                   <option>Birthday</option>
                   <option>Love Story</option>
-                  <option>Family Tribute</option>
-                  <option>Memorial</option>
+                  <option>Family</option>
+                  <option>Friendship</option>
+                  <option>Memorial / Tribute</option>
+                  <option>Just Because</option>
                   <option>Other</option>
                 </select>
               </div>
               <div>
-                <label for="story">Tell me the story</label>
-                <textarea id="story" name="story" placeholder="Who is the song about? What happened? What details absolutely belong in it?" required></textarea>
+                <label for="recipient">Who is the song for?</label>
+                <input id="recipient" name="recipient" type="text" placeholder="Name or nickname" required />
               </div>
               <div>
-                <label for="style">What should it feel like?</label>
-                <input id="style" name="style" type="text" placeholder="Soulful, upbeat pop, country, R&B, romantic, funny..." />
+                <label for="story">Give me the short version of your story</label>
+                <textarea id="story" name="story" placeholder="Who is this person to you? What's your story? Share a few memories, places, inside jokes, or little details that make it yours." required></textarea>
               </div>
-              <button class="btn primary" type="submit">Send My Story</button>
+              <div>
+                <label for="style">What should the song feel like?</label>
+                <textarea id="style" name="style" placeholder="Romantic, emotional, joyful, nostalgic, soulful, funny, upbeat..."></textarea>
+              </div>
+              <button class="btn primary" type="submit">Start My Song 💋</button>
+              <p class="small">No need to write the whole story yet. I'll personally follow up for the details.</p>
             </form>
-            <p class="note">Before this form works, replace <strong>YOUR_FORM_ID</strong> in the code with your free Formspree form ID.</p>
           </div>
         </div>
       </div>
