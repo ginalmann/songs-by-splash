@@ -71,22 +71,47 @@
     }
 
     .hero {
-      padding: 96px 0 72px;
+      position: relative;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #241720;
+      color: white;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
-      align-items: center;
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(25,13,21,.78) 0%, rgba(32,18,28,.58) 48%, rgba(32,18,28,.28) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 110px 0 100px;
+    }
+
+    .hero-copy { max-width: 720px; }
 
     .eyebrow {
       display: inline-block;
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--accent);
+      color: var(--champagne);
       font-weight: 700;
       margin-bottom: 18px;
     }
@@ -99,17 +124,18 @@
     }
 
     h1 {
-      font-size: clamp(3.2rem, 8vw, 6.4rem);
+      font-size: clamp(3.4rem, 8vw, 6.8rem);
       margin-bottom: 22px;
+      text-shadow: 0 3px 24px rgba(0,0,0,.28);
     }
 
-    h1 span { color: var(--accent); }
+    h1 span { color: #ead3a0; }
     .brand { color: var(--accent); }
 
     .hero p {
-      font-size: 1.18rem;
+      font-size: 1.2rem;
       max-width: 650px;
-      color: var(--muted);
+      color: rgba(255,255,255,.9);
       margin-bottom: 30px;
     }
 
@@ -128,6 +154,8 @@
       font-weight: 700;
       transition: 0.2s ease;
       border: 1px solid var(--accent);
+      cursor: pointer;
+      font: inherit;
     }
 
     .btn.primary {
@@ -138,48 +166,21 @@
     .btn.primary:hover { background: var(--accent-dark); }
     .btn.secondary { color: var(--accent); }
     .btn.secondary:hover { background: #eee2d3; }
-
-    .hero-card {
-      position: relative;
-      min-height: 480px;
-      border-radius: 36px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.42), transparent 32%),
-        radial-gradient(circle at 75% 30%, rgba(214,183,122,.28), transparent 28%),
-        linear-gradient(135deg, #201a1e 0%, #4a243b 54%, #d6b77a 100%);
-      display: flex;
-      align-items: end;
-      padding: 36px;
+    .hero .btn.secondary {
       color: white;
+      border-color: rgba(255,255,255,.75);
+      background: rgba(20,10,16,.28);
+      backdrop-filter: blur(8px);
     }
+    .hero .btn.secondary:hover { background: rgba(255,255,255,.14); }
 
-    .hero-card::before,
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.28);
+    .hero-categories {
+      margin-top: 34px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: rgba(255,255,255,.72);
     }
-
-    .hero-card::before {
-      width: 300px;
-      height: 300px;
-      top: -70px;
-      right: -40px;
-    }
-
-    .hero-card::after {
-      width: 180px;
-      height: 180px;
-      top: 22px;
-      right: 18px;
-    }
-
-    .hero-card-content { position: relative; z-index: 2; }
-    .hero-card h3 { font-size: 2.4rem; margin-bottom: 8px; }
-    .hero-card p { color: rgba(255,255,255,.86); margin: 0; font-size: 1rem; }
 
     section { padding: 78px 0; }
     .section-title {
@@ -370,8 +371,9 @@
       .grid-3 {
         grid-template-columns: 1fr;
       }
-      .hero { padding-top: 64px; }
-      .hero-card { min-height: 380px; }
+      .hero { min-height: 620px; }
+      .hero-content { padding: 84px 0 72px; }
+      .hero::after { background: linear-gradient(90deg, rgba(25,13,21,.76), rgba(25,13,21,.52)); }
       .nav-links { display: none; }
       .featured { transform: none; }
       .footer-grid { align-items: start; flex-direction: column; }
@@ -435,24 +437,23 @@
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
+    <section class="hero" aria-label="Songs by Splash introduction">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="a_warm_golden_hour_outdoor_scene_in_a_shallow_dep.png">
+        <source src="songs-by-splash-homepage-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-content">
+        <div class="hero-copy">
           <div class="eyebrow">Custom songs made from real stories</div>
           <h1>Your story.<br><span>Your song.</span></h1>
-          <p>
-            Tell me the moments you never want to forget. I’ll shape them into a one-of-a-kind song for weddings, anniversaries, birthdays, tributes, and everything in between.
-          </p>
+          <p>The moments you never want to forget, turned into an original song made just for you.</p>
           <div class="buttons">
-            <a class="btn primary" href="#story">Start Your Song</a>
-            <a class="btn secondary" href="#samples">Hear Samples</a>
+            <button class="btn primary" id="heroPlay" type="button" aria-pressed="false">▶ Hear the Story Become a Song</button>
+            <a class="btn secondary" href="#story">Start My Song</a>
           </div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-content">
-            <h3>Made from the details that matter.</h3>
-            <p>Not a name dropped into a template. A real story, shaped into lyrics and music.</p>
-          </div>
+          <div class="hero-categories">Weddings &nbsp;•&nbsp; Love Stories &nbsp;•&nbsp; Family &nbsp;•&nbsp; Friendship &nbsp;•&nbsp; Tributes</div>
+          <audio id="heroAudio" preload="metadata">
+            <source src="you-found-your-home-sample.mp3" type="audio/mpeg">
+          </audio>
         </div>
       </div>
     </section>
@@ -685,5 +686,27 @@
       <div class="signature">Love, Splash 💋</div>
     </div>
   </footer>
+  <script>
+    const heroPlay = document.getElementById('heroPlay');
+    const heroAudio = document.getElementById('heroAudio');
+    if (heroPlay && heroAudio) {
+      heroPlay.addEventListener('click', () => {
+        if (heroAudio.paused) {
+          document.querySelectorAll('audio').forEach(a => { if (a !== heroAudio) a.pause(); });
+          heroAudio.play();
+          heroPlay.textContent = '❚❚ Pause Song';
+          heroPlay.setAttribute('aria-pressed', 'true');
+        } else {
+          heroAudio.pause();
+          heroPlay.textContent = '▶ Hear the Story Become a Song';
+          heroPlay.setAttribute('aria-pressed', 'false');
+        }
+      });
+      heroAudio.addEventListener('ended', () => {
+        heroPlay.textContent = '▶ Hear the Story Become a Song';
+        heroPlay.setAttribute('aria-pressed', 'false');
+      });
+    }
+  </script>
 </body>
 </html>
