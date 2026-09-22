@@ -420,6 +420,12 @@
 }
 </style>
 
+
+<style>
+.payment-step { background:#fffaf3; border:1px solid #e5d8c7; border-radius:24px; padding:28px; box-shadow:0 10px 35px rgba(49,28,42,.08); }
+.payment-step h3 { font-size:2rem; margin-bottom:10px; }
+.payment-step .btn { margin-top:8px; }
+</style>
 </head>
 <body>
   <header>
@@ -532,8 +538,7 @@
               <li>One revision</li>
               <li>Digital delivery</li>
             </ul>
-            <a class="btn secondary" href="https://venmo.com/songsbysplash?txn=pay&amount=99.00&note=Songs%20by%20Splash%20-%20Splash%20Song" target="_blank" rel="noopener">Pay $99 with Venmo</a>
-            <p class="note">Opens Venmo with your package and amount selected. You'll confirm before payment is sent.</p>
+            <a class="btn secondary package-select" href="#story" data-package="Splash Song" data-price="99">Choose Splash Song</a>
           </div>
 
           <div class="card featured">
@@ -547,8 +552,7 @@
               <li>Two revisions</li>
               <li>Custom cover artwork</li>
             </ul>
-            <a class="btn primary" href="https://venmo.com/songsbysplash?txn=pay&amount=175.00&note=Songs%20by%20Splash%20-%20Story%20Song" target="_blank" rel="noopener">Pay $175 with Venmo</a>
-            <p class="note">Opens Venmo with your package and amount selected. You'll confirm before payment is sent.</p>
+            <a class="btn primary package-select" href="#story" data-package="Story Song" data-price="175">Choose Story Song</a>
           </div>
 
           <div class="card">
@@ -561,8 +565,7 @@
               <li>Cover artwork + lyric sheet</li>
               <li>Priority revisions</li>
             </ul>
-            <a class="btn secondary" href="https://venmo.com/songsbysplash?txn=pay&amount=295.00&note=Songs%20by%20Splash%20-%20Wedding%20Legacy" target="_blank" rel="noopener">Pay $295 with Venmo</a>
-            <p class="note">Opens Venmo with your package and amount selected. You'll confirm before payment is sent.</p>
+            <a class="btn secondary package-select" href="#story" data-package="Wedding / Legacy" data-price="295">Choose Wedding / Legacy</a>
           </div>
         </div>
       </div>
@@ -593,7 +596,18 @@
           </div>
 
           <div>
-            <form action="https://formspree.io/f/xoevdwqr" method="POST">
+            <form id="songOrderForm" action="https://formspree.io/f/xoevdwqr" method="POST">
+              <input type="hidden" id="order_id" name="order_id" value="">
+              <input type="hidden" id="package_price" name="package_price" value="">
+              <div>
+                <label for="package">Choose your package</label>
+                <select id="package" name="package" required>
+                  <option value="" selected disabled>Select a package</option>
+                  <option value="Splash Song">Splash Song — $99</option>
+                  <option value="Story Song">Story Song — $175</option>
+                  <option value="Wedding / Legacy">Wedding / Legacy — $295</option>
+                </select>
+              </div>
               <div>
                 <label for="name">Your name</label>
                 <input id="name" name="name" type="text" placeholder="First and last name" required />
@@ -646,9 +660,17 @@
                 <label for="style">What should the song feel like?</label>
                 <textarea id="style" name="style" placeholder="Romantic, emotional, joyful, nostalgic, soulful, funny, upbeat..."></textarea>
               </div>
-              <button class="btn primary" type="submit">Start My Song 💋</button>
-              <p class="small">No need to write the whole story yet. I'll personally follow up for the details.</p>
+              <button class="btn primary" type="submit">Submit My Story & Continue to Payment 💋</button>
+              <p class="small">Your story is submitted first so I can match it to your payment. You’ll pay on the next step.</p>
             </form>
+            <div id="paymentStep" class="payment-step" hidden>
+              <div class="eyebrow">Story received</div>
+              <h3>One last step: payment</h3>
+              <p id="paymentSummary"></p>
+              <p>Your order number is <strong id="orderNumber"></strong>. Your name and order number will be included in the Venmo payment note so I can match your payment to your song request.</p>
+              <a id="venmoPay" class="btn primary" href="#" target="_blank" rel="noopener">Pay with Venmo</a>
+              <p class="note">Venmo: <strong>@songsbysplash</strong>. Please don’t remove the order number from the payment note.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -711,5 +733,69 @@
       });
     }
   </script>
+
+<script>
+(function () {
+  const form = document.getElementById('songOrderForm');
+  const packageSelect = document.getElementById('package');
+  const priceField = document.getElementById('package_price');
+  const orderField = document.getElementById('order_id');
+  const paymentStep = document.getElementById('paymentStep');
+  const venmoPay = document.getElementById('venmoPay');
+  const paymentSummary = document.getElementById('paymentSummary');
+  const orderNumber = document.getElementById('orderNumber');
+  const prices = {'Splash Song':'99','Story Song':'175','Wedding / Legacy':'295'};
+
+  document.querySelectorAll('.package-select').forEach(btn => {
+    btn.addEventListener('click', () => {
+      packageSelect.value = btn.dataset.package;
+      priceField.value = btn.dataset.price;
+    });
+  });
+
+  packageSelect.addEventListener('change', () => {
+    priceField.value = prices[packageSelect.value] || '';
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const pkg = packageSelect.value;
+    const price = prices[pkg];
+    if (!pkg || !price) return;
+    const name = document.getElementById('name').value.trim();
+    const now = new Date();
+    const date = String(now.getFullYear()).slice(-2) + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0');
+    const code = Math.random().toString(36).slice(2,6).toUpperCase();
+    const orderId = 'SBS-' + date + '-' + code;
+    orderField.value = orderId;
+    priceField.value = price;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const oldText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!response.ok) throw new Error('Form submission failed');
+      const note = `Songs by Splash | ${orderId} | ${name} | ${pkg}`;
+      venmoPay.href = `https://venmo.com/songsbysplash?txn=pay&amount=${encodeURIComponent(price)}&note=${encodeURIComponent(note)}`;
+      venmoPay.textContent = `Pay $${price} with Venmo`;
+      orderNumber.textContent = orderId;
+      paymentSummary.textContent = `${pkg} — $${price}`;
+      form.hidden = true;
+      paymentStep.hidden = false;
+      paymentStep.scrollIntoView({behavior:'smooth', block:'center'});
+    } catch (err) {
+      alert('Your story could not be submitted yet. Please try again. No payment has been taken.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = oldText;
+    }
+  });
+})();
+</script>
 </body>
 </html>
