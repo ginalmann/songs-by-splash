@@ -503,19 +503,19 @@
             <h3>Friendship Tribute</h3>
             <p><strong>Every Version of Us</strong><br>A song about a friendship that grows through every age, every chapter, and every version of who you become.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="every-version-of-us-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-<a class="full-song-link" href="every-version-of-us.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
+<button class="full-song-link full-song-toggle" type="button" data-sample="every-version-of-us-sample.mp3" data-full="every-version-of-us.mp3">Listen to the full song →</button>
           </div>
           <div class="sample-card">
             <h3>Love Story</h3>
             <p><strong>Apartment Fifteen on Oleander</strong><br>A nostalgic love song about the place where young love, big dreams, and a lifetime of memories began.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="apartment-fifteen-on-oleander-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-<a class="full-song-link" href="apartment-fifteen-on-oleander.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
+<button class="full-song-link full-song-toggle" type="button" data-sample="apartment-fifteen-on-oleander-sample.mp3" data-full="apartment-fifteen-on-oleander.mp3">Listen to the full song →</button>
           </div>
           <div class="sample-card">
             <h3>Mother-Son Wedding</h3>
             <p><strong>You Found Your Home</strong><br>A heartfelt mother-son dance song about watching a little boy grow up, fall in love, and find a home of his own.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="you-found-your-home-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-            <a class="full-song-link" href="you-found-your-home.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
+            <button class="full-song-link full-song-toggle" type="button" data-sample="you-found-your-home-sample.mp3" data-full="you-found-your-home.mp3">Listen to the full song →</button>
           </div>
         </div>
       </div>
@@ -797,5 +797,30 @@
   });
 })();
 </script>
+
+<script>
+document.querySelectorAll('.full-song-toggle').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const card = button.closest('.sample-card');
+    const audio = card ? card.querySelector('audio') : null;
+    const source = audio ? audio.querySelector('source') : null;
+    if (!audio || !source) return;
+
+    const showingFull = button.dataset.state === 'full';
+    source.src = showingFull ? button.dataset.sample : button.dataset.full;
+    audio.load();
+    audio.play().catch(function() {});
+
+    if (showingFull) {
+      button.dataset.state = 'sample';
+      button.textContent = 'Listen to the full song →';
+    } else {
+      button.dataset.state = 'full';
+      button.textContent = 'Back to short sample';
+    }
+  });
+});
+</script>
+
 </body>
 </html>
