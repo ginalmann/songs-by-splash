@@ -3,8 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Songs by Splash creates custom songs from your story for weddings, anniversaries, birthdays, tributes, and unforgettable moments." />
-  <title>Songs by Splash | Your Story. Your Song.</title>
+  <meta name="description" content="Turn your real memories into a custom personalized song. Songs by Splash creates one-of-a-kind songs for weddings, anniversaries, birthdays, love stories, friendship tributes and meaningful gifts." />
+  <title>Custom Personalized Songs From Your Story | Songs by Splash</title>
+
+  <link rel="canonical" href="https://songsbysplash.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Custom Personalized Songs From Your Story | Songs by Splash" />
+  <meta property="og:description" content="Turn your memories, names, places and meaningful moments into a one-of-a-kind custom song." />
+  <meta property="og:url" content="https://songsbysplash.com/" />
+  <meta property="og:image" content="https://songsbysplash.com/songs-by-splash-cream-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://songsbysplash.com/#organization",
+        "name": "Songs by Splash",
+        "url": "https://songsbysplash.com/",
+        "logo": "https://songsbysplash.com/songs-by-splash-cream-logo.png",
+        "email": "hello@songsbysplash.com",
+        "description": "Songs by Splash creates custom personalized songs from real stories, memories, names, places and meaningful moments."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://songsbysplash.com/#website",
+        "url": "https://songsbysplash.com/",
+        "name": "Songs by Splash",
+        "publisher": {"@id": "https://songsbysplash.com/#organization"}
+      },
+      {
+        "@type": "Service",
+        "@id": "https://songsbysplash.com/#service",
+        "name": "Custom Personalized Song Service",
+        "serviceType": "Custom personalized songs made from real stories",
+        "provider": {"@id": "https://songsbysplash.com/#organization"},
+        "url": "https://songsbysplash.com/",
+        "description": "Personalized songs created from real memories, names, places, inside jokes, milestones and meaningful details for weddings, anniversaries, birthdays, love stories, friendships, family tributes and gifts."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I turn my story into a custom song?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Songs by Splash creates personalized songs from the people, memories, places, sayings, inside jokes and moments that matter to you."}
+          },
+          {
+            "@type": "Question",
+            "name": "What information do I need for a personalized song?",
+            "acceptedAnswer": {"@type": "Answer", "text": "You do not need to write lyrics. Share who the song is for, meaningful memories, places, milestones, sayings, inside jokes and the feeling you want the song to capture."}
+          },
+          {
+            "@type": "Question",
+            "name": "Can you create a custom wedding song?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Custom wedding songs can be built from a couple's real story, including how they met, meaningful memories, humor, milestones and the feeling they want for the wedding."}
+          },
+          {
+            "@type": "Question",
+            "name": "Can I give a custom song as a gift?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Personalized songs can be created as gifts for weddings, anniversaries, birthdays, friendships, family milestones, memorials and other meaningful occasions."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -71,47 +136,22 @@
     }
 
     .hero {
-      position: relative;
-      min-height: 680px;
-      display: flex;
+      padding: 96px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
       align-items: center;
-      overflow: hidden;
-      background: #241720;
-      color: white;
     }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(25,13,21,.78) 0%, rgba(32,18,28,.58) 48%, rgba(32,18,28,.28) 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(1120px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 110px 0 100px;
-    }
-
-    .hero-copy { max-width: 720px; }
 
     .eyebrow {
       display: inline-block;
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--champagne);
+      color: var(--accent);
       font-weight: 700;
       margin-bottom: 18px;
     }
@@ -124,18 +164,17 @@
     }
 
     h1 {
-      font-size: clamp(3.4rem, 8vw, 6.8rem);
+      font-size: clamp(3.2rem, 8vw, 6.4rem);
       margin-bottom: 22px;
-      text-shadow: 0 3px 24px rgba(0,0,0,.28);
     }
 
-    h1 span { color: #ead3a0; }
+    h1 span { color: var(--accent); }
     .brand { color: var(--accent); }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       max-width: 650px;
-      color: rgba(255,255,255,.9);
+      color: var(--muted);
       margin-bottom: 30px;
     }
 
@@ -154,8 +193,6 @@
       font-weight: 700;
       transition: 0.2s ease;
       border: 1px solid var(--accent);
-      cursor: pointer;
-      font: inherit;
     }
 
     .btn.primary {
@@ -166,21 +203,48 @@
     .btn.primary:hover { background: var(--accent-dark); }
     .btn.secondary { color: var(--accent); }
     .btn.secondary:hover { background: #eee2d3; }
-    .hero .btn.secondary {
-      color: white;
-      border-color: rgba(255,255,255,.75);
-      background: rgba(20,10,16,.28);
-      backdrop-filter: blur(8px);
-    }
-    .hero .btn.secondary:hover { background: rgba(255,255,255,.14); }
 
-    .hero-categories {
-      margin-top: 34px;
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      color: rgba(255,255,255,.72);
+    .hero-card {
+      position: relative;
+      min-height: 480px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.42), transparent 32%),
+        radial-gradient(circle at 75% 30%, rgba(214,183,122,.28), transparent 28%),
+        linear-gradient(135deg, #201a1e 0%, #4a243b 54%, #d6b77a 100%);
+      display: flex;
+      align-items: end;
+      padding: 36px;
+      color: white;
     }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.28);
+    }
+
+    .hero-card::before {
+      width: 300px;
+      height: 300px;
+      top: -70px;
+      right: -40px;
+    }
+
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      top: 22px;
+      right: 18px;
+    }
+
+    .hero-card-content { position: relative; z-index: 2; }
+    .hero-card h3 { font-size: 2.4rem; margin-bottom: 8px; }
+    .hero-card p { color: rgba(255,255,255,.86); margin: 0; font-size: 1rem; }
 
     section { padding: 78px 0; }
     .section-title {
@@ -371,9 +435,8 @@
       .grid-3 {
         grid-template-columns: 1fr;
       }
-      .hero { min-height: 620px; }
-      .hero-content { padding: 84px 0 72px; }
-      .hero::after { background: linear-gradient(90deg, rgba(25,13,21,.76), rgba(25,13,21,.52)); }
+      .hero { padding-top: 64px; }
+      .hero-card { min-height: 380px; }
       .nav-links { display: none; }
       .featured { transform: none; }
       .footer-grid { align-items: start; flex-direction: column; }
@@ -420,22 +483,15 @@
 }
 </style>
 
-
-<style>
-.payment-step { background:#fffaf3; border:1px solid #e5d8c7; border-radius:24px; padding:28px; box-shadow:0 10px 35px rgba(49,28,42,.08); }
-.payment-step h3 { font-size:2rem; margin-bottom:10px; }
-.payment-step .btn { margin-top:8px; }
-</style>
 </head>
 <body>
   <header>
     <div class="wrap">
       <nav>
-        <a class="site-logo" href="#top" aria-label="Songs by Splash home"><img src="songs-by-splash-logo-header-clean.png" alt="Songs by Splash"></a>
+        <a class="site-logo" href="#top" aria-label="Songs by Splash home"><img src="songs-by-splash-cream-logo.png" alt="Songs by Splash"></a>
         <div class="nav-links">
           <a href="#how">How It Works</a>
           <a href="#samples">Samples</a>
-          <a href="portfolio.html" class="nav-portfolio">Portfolio</a>
           <a href="#pricing">Pricing</a>
           <a href="#story">Tell Me Your Story</a>
         </div>
@@ -444,23 +500,24 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Songs by Splash introduction">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="a_warm_golden_hour_outdoor_scene_in_a_shallow_dep.png">
-        <source src="songs-by-splash-homepage-hero.mp4" type="video/mp4">
-      </video>
-      <div class="hero-content">
-        <div class="hero-copy">
-          <div class="eyebrow">Custom songs made from real stories</div>
-          <h1>Your story.<br><span>Your song.</span></h1>
-          <p>The moments you never want to forget, turned into an original song made just for you.</p>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Custom personalized songs made from real stories</div>
+          <h1>Your story, turned into a <span>custom song.</span></h1>
+          <p>
+            Songs by Splash creates personalized songs from your real memories, names, places, inside jokes and meaningful moments—for weddings, anniversaries, birthdays, love stories, friendship tributes, family milestones and unforgettable gifts.
+          </p>
           <div class="buttons">
-            <button class="btn primary" id="heroPlay" type="button" aria-pressed="false">▶ Hear the Story Become a Song</button>
-            <a class="btn secondary" href="#story">Start My Song</a>
+            <a class="btn primary" href="#story">Start Your Song</a>
+            <a class="btn secondary" href="#samples">Hear Samples</a>
           </div>
-          <div class="hero-categories">Weddings &nbsp;•&nbsp; Love Stories &nbsp;•&nbsp; Family &nbsp;•&nbsp; Friendship &nbsp;•&nbsp; Tributes</div>
-          <audio id="heroAudio" preload="metadata">
-            <source src="you-found-your-home-sample.mp3" type="audio/mpeg">
-          </audio>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-content">
+            <h3>A custom song built from the details that matter.</h3>
+            <p>Not a name dropped into a template. Your memories, places, sayings and moments are shaped into original lyrics and music.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -476,17 +533,17 @@
           <div class="card">
             <div class="num">1</div>
             <h3>Tell me your story</h3>
-            <p>Share the moments that matter.</p>
+            <p>Share the people, places, inside jokes, memories, and feelings that make your story yours.</p>
           </div>
           <div class="card">
             <div class="num">2</div>
-            <h3>I create your song</h3>
-            <p>Your story becomes lyrics and music.</p>
+            <h3>I find the hook</h3>
+            <p>I shape your details into original lyrics and choose a musical direction that fits the moment.</p>
           </div>
           <div class="card">
             <div class="num">3</div>
-            <h3>Make it yours</h3>
-            <p>Listen, share, gift, and remember.</p>
+            <h3>You get your song</h3>
+            <p>You receive a personalized finished song made to be played, shared, gifted, and remembered.</p>
           </div>
         </div>
       </div>
@@ -504,23 +561,19 @@
             <h3>Friendship Tribute</h3>
             <p><strong>Every Version of Us</strong><br>A song about a friendship that grows through every age, every chapter, and every version of who you become.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="every-version-of-us-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-<button class="full-song-link full-song-toggle" type="button" data-sample="every-version-of-us-sample.mp3" data-full="every-version-of-us.mp3">Listen to the full song →</button>
+<a class="full-song-link" href="every-version-of-us.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
           </div>
           <div class="sample-card">
             <h3>Love Story</h3>
             <p><strong>Apartment Fifteen on Oleander</strong><br>A nostalgic love song about the place where young love, big dreams, and a lifetime of memories began.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="apartment-fifteen-on-oleander-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-<button class="full-song-link full-song-toggle" type="button" data-sample="apartment-fifteen-on-oleander-sample.mp3" data-full="apartment-fifteen-on-oleander.mp3">Listen to the full song →</button>
+<a class="full-song-link" href="apartment-fifteen-on-oleander.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
           </div>
           <div class="sample-card">
-            <h3>Mother-Son Wedding</h3>
-            <p><strong>You Found Your Home</strong><br>A heartfelt mother-son dance song about watching a little boy grow up, fall in love, and find a home of his own.</p>
-            <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="you-found-your-home-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-            <button class="full-song-link full-song-toggle" type="button" data-sample="you-found-your-home-sample.mp3" data-full="you-found-your-home.mp3">Listen to the full song →</button>
+            <h3>Wedding Song</h3>
+            <p><strong>Kenny &amp; Lachie</strong><br>A personal wedding song built from the couple’s real story, shared memories, humor, and the moments that brought them here.</p>
+            <a class="sample-link" href="/custom-wedding-song/">Learn about custom wedding songs →</a>
           </div>
-        </div>
-        <div class="portfolio-cta-wrap">
-          <a class="portfolio-cta" href="portfolio.html">Explore the Full Portfolio →</a>
         </div>
       </div>
     </section>
@@ -530,7 +583,7 @@
         <div class="section-title">
           <div class="eyebrow">Packages</div>
           <h2>Start simple. Make it personal.</h2>
-          <p>Choose the level of storytelling and personalization that fits your moment.</p>
+          <p>Choose the level of personalization that fits your story and occasion.</p>
         </div>
         <div class="grid-3">
           <div class="card">
@@ -542,7 +595,7 @@
               <li>One revision</li>
               <li>Digital delivery</li>
             </ul>
-            <a class="btn secondary package-select" href="#story" data-package="Splash Song" data-price="99">Choose Splash Song</a>
+            <a class="btn secondary" href="#story">Choose Splash Song</a>
           </div>
 
           <div class="card featured">
@@ -556,7 +609,7 @@
               <li>Two revisions</li>
               <li>Custom cover artwork</li>
             </ul>
-            <a class="btn primary package-select" href="#story" data-package="Story Song" data-price="175">Choose Story Song</a>
+            <a class="btn primary" href="#story">Choose Story Song</a>
           </div>
 
           <div class="card">
@@ -569,7 +622,7 @@
               <li>Cover artwork + lyric sheet</li>
               <li>Priority revisions</li>
             </ul>
-            <a class="btn secondary package-select" href="#story" data-package="Wedding / Legacy" data-price="295">Choose Wedding / Legacy</a>
+            <a class="btn secondary" href="#story">Choose Premium</a>
           </div>
         </div>
       </div>
@@ -600,18 +653,7 @@
           </div>
 
           <div>
-            <form id="songOrderForm" action="https://formspree.io/f/xoevdwqr" method="POST">
-              <input type="hidden" id="order_id" name="order_id" value="">
-              <input type="hidden" id="package_price" name="package_price" value="">
-              <div>
-                <label for="package">Choose your package</label>
-                <select id="package" name="package" required>
-                  <option value="" selected disabled>Select a package</option>
-                  <option value="Splash Song">Splash Song — $99</option>
-                  <option value="Story Song">Story Song — $175</option>
-                  <option value="Wedding / Legacy">Wedding / Legacy — $295</option>
-                </select>
-              </div>
+            <form action="https://formspree.io/f/xoevdwqr" method="POST">
               <div>
                 <label for="name">Your name</label>
                 <input id="name" name="name" type="text" placeholder="First and last name" required />
@@ -664,44 +706,55 @@
                 <label for="style">What should the song feel like?</label>
                 <textarea id="style" name="style" placeholder="Romantic, emotional, joyful, nostalgic, soulful, funny, upbeat..."></textarea>
               </div>
-              <button class="btn primary" type="submit">Submit My Story & Continue to Payment 💋</button>
-              <p class="small">Your story is submitted first so I can match it to your payment. You’ll pay on the next step.</p>
+              <button class="btn primary" type="submit">Start My Song 💋</button>
+              <p class="small">No need to write the whole story yet. I'll personally follow up for the details.</p>
             </form>
-            <div id="paymentStep" class="payment-step" hidden>
-              <div class="eyebrow">Story received</div>
-              <h3>One last step: payment</h3>
-              <p id="paymentSummary"></p>
-              <p>Your order number is <strong id="orderNumber"></strong>. Your name and order number will be included in the Venmo payment note so I can match your payment to your song request.</p>
-              <a id="venmoPay" class="btn primary" href="#" target="_blank" rel="noopener">Pay with Venmo</a>
-              <p class="note">Venmo: <strong>@songsbysplash</strong>. Please don’t remove the order number from the payment note.</p>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="faq">
+    <section class="faq" id="faq">
       <div class="wrap">
         <div class="section-title">
-          <div class="eyebrow">FAQ</div>
-          <h2>A few things people ask.</h2>
+          <div class="eyebrow">Custom song FAQ</div>
+          <h2>Questions about personalized songs.</h2>
+          <p>Clear answers about turning a real story into a song.</p>
         </div>
         <details>
+          <summary>Can I turn my story into a custom song?</summary>
+          <p>Yes. Songs by Splash creates personalized songs from the people, memories, places, sayings, inside jokes and moments that matter to you.</p>
+        </details>
+        <details>
+          <summary>What information do I need for a personalized song?</summary>
+          <p>You do not need to write lyrics. Share who the song is for, meaningful memories, places, milestones, sayings, inside jokes and the feeling you want the song to capture. I shape those details into the song.</p>
+        </details>
+        <details>
+          <summary>Can you create a custom wedding song or first-dance song?</summary>
+          <p>Yes. A custom wedding song can be built from your real relationship story—how you met, favorite memories, meaningful places, humor, milestones and what you want your partner or guests to feel. <a href="/custom-wedding-song/" style="color:var(--accent);font-weight:700;">Learn about custom wedding songs →</a></p>
+        </details>
+        <details>
           <summary>Can I choose the music style?</summary>
-          <p>Yes. You can tell me the mood, genre, tempo, vocal feel, or a general musical direction you love.</p>
+          <p>Yes. You can share the genre, mood, tempo, vocal feel or general musical direction you love. If you are unsure, you can choose “Surprise Me.”</p>
         </details>
         <details>
-          <summary>Can I request changes?</summary>
-          <p>Yes. Revisions depend on the package you choose. I’ll make sure the important details feel right before the song is final.</p>
-        </details>
-        <details>
-          <summary>Can I give the song as a gift?</summary>
-          <p>Absolutely. Custom songs are perfect for weddings, anniversaries, birthdays, parents, friendships, and milestone moments.</p>
+          <summary>Can I give a custom song as a gift?</summary>
+          <p>Absolutely. Personalized songs can be created for weddings, anniversaries, birthdays, friendships, parents, family milestones, memorials and meaningful occasions when an ordinary gift does not feel personal enough.</p>
         </details>
         <details>
           <summary>Do I need to know anything about songwriting?</summary>
-          <p>No. Just tell me the story. I’ll help find the words, structure, hook, and musical direction.</p>
+          <p>No. Just tell me the story. I find the hook, shape the lyrics and develop the musical direction.</p>
         </details>
+      </div>
+    </section>
+
+    <section aria-labelledby="what-is-songs-by-splash">
+      <div class="wrap">
+        <div class="section-title">
+          <div class="eyebrow">Personalized song service</div>
+          <h2 id="what-is-songs-by-splash">What is Songs by Splash?</h2>
+          <p>Songs by Splash is a custom song service that turns real stories and meaningful details into personalized songs. Each song begins with the people, memories, places and moments you want to preserve, then develops those details into original lyrics and a musical direction chosen for your occasion.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -715,116 +768,5 @@
       <div class="signature">Love, Splash 💋</div>
     </div>
   </footer>
-  <script>
-    const heroPlay = document.getElementById('heroPlay');
-    const heroAudio = document.getElementById('heroAudio');
-    if (heroPlay && heroAudio) {
-      heroPlay.addEventListener('click', () => {
-        if (heroAudio.paused) {
-          document.querySelectorAll('audio').forEach(a => { if (a !== heroAudio) a.pause(); });
-          heroAudio.play();
-          heroPlay.textContent = '❚❚ Pause Song';
-          heroPlay.setAttribute('aria-pressed', 'true');
-        } else {
-          heroAudio.pause();
-          heroPlay.textContent = '▶ Hear the Story Become a Song';
-          heroPlay.setAttribute('aria-pressed', 'false');
-        }
-      });
-      heroAudio.addEventListener('ended', () => {
-        heroPlay.textContent = '▶ Hear the Story Become a Song';
-        heroPlay.setAttribute('aria-pressed', 'false');
-      });
-    }
-  </script>
-
-<script>
-(function () {
-  const form = document.getElementById('songOrderForm');
-  const packageSelect = document.getElementById('package');
-  const priceField = document.getElementById('package_price');
-  const orderField = document.getElementById('order_id');
-  const paymentStep = document.getElementById('paymentStep');
-  const venmoPay = document.getElementById('venmoPay');
-  const paymentSummary = document.getElementById('paymentSummary');
-  const orderNumber = document.getElementById('orderNumber');
-  const prices = {'Splash Song':'99','Story Song':'175','Wedding / Legacy':'295'};
-
-  document.querySelectorAll('.package-select').forEach(btn => {
-    btn.addEventListener('click', () => {
-      packageSelect.value = btn.dataset.package;
-      priceField.value = btn.dataset.price;
-    });
-  });
-
-  packageSelect.addEventListener('change', () => {
-    priceField.value = prices[packageSelect.value] || '';
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const pkg = packageSelect.value;
-    const price = prices[pkg];
-    if (!pkg || !price) return;
-    const name = document.getElementById('name').value.trim();
-    const now = new Date();
-    const date = String(now.getFullYear()).slice(-2) + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0');
-    const code = Math.random().toString(36).slice(2,6).toUpperCase();
-    const orderId = 'SBS-' + date + '-' + code;
-    orderField.value = orderId;
-    priceField.value = price;
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const oldText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting…';
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (!response.ok) throw new Error('Form submission failed');
-      const note = `Songs by Splash | ${orderId} | ${name} | ${pkg}`;
-      venmoPay.href = `https://venmo.com/songsbysplash?txn=pay&amount=${encodeURIComponent(price)}&note=${encodeURIComponent(note)}`;
-      venmoPay.textContent = `Pay $${price} with Venmo`;
-      orderNumber.textContent = orderId;
-      paymentSummary.textContent = `${pkg} — $${price}`;
-      form.hidden = true;
-      paymentStep.hidden = false;
-      paymentStep.scrollIntoView({behavior:'smooth', block:'center'});
-    } catch (err) {
-      alert('Your story could not be submitted yet. Please try again. No payment has been taken.');
-      submitBtn.disabled = false;
-      submitBtn.textContent = oldText;
-    }
-  });
-})();
-</script>
-
-<script>
-document.querySelectorAll('.full-song-toggle').forEach(function(button) {
-  button.addEventListener('click', function() {
-    const card = button.closest('.sample-card');
-    const audio = card ? card.querySelector('audio') : null;
-    const source = audio ? audio.querySelector('source') : null;
-    if (!audio || !source) return;
-
-    const showingFull = button.dataset.state === 'full';
-    source.src = showingFull ? button.dataset.sample : button.dataset.full;
-    audio.load();
-    audio.play().catch(function() {});
-
-    if (showingFull) {
-      button.dataset.state = 'sample';
-      button.textContent = 'Listen to the full song →';
-    } else {
-      button.dataset.state = 'full';
-      button.textContent = 'Back to short sample';
-    }
-  });
-});
-</script>
-
 </body>
 </html>
