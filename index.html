@@ -483,6 +483,91 @@
 }
 </style>
 
+
+<style>
+/* Restored pre-SEO homepage experience */
+.hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #241720;
+  color: white;
+  padding: 0;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(25,13,21,.78) 0%, rgba(32,18,28,.58) 48%, rgba(32,18,28,.28) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 110px 0 100px;
+}
+.hero-copy { max-width: 760px; }
+.hero .eyebrow { color: var(--champagne); }
+.hero h1 {
+  font-size: clamp(3.4rem, 8vw, 6.8rem);
+  text-shadow: 0 3px 24px rgba(0,0,0,.28);
+}
+.hero h1 span { color: #ead3a0; }
+.hero p { color: rgba(255,255,255,.9); }
+.hero .btn.secondary {
+  color: white;
+  border-color: rgba(255,255,255,.75);
+  background: rgba(20,10,16,.28);
+  backdrop-filter: blur(8px);
+}
+.hero .btn.secondary:hover { background: rgba(255,255,255,.14); }
+.hero-categories {
+  margin-top: 34px;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  color: rgba(255,255,255,.72);
+}
+.portfolio-cta-wrap { text-align:center; margin-top:32px; }
+.portfolio-cta {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 19px;
+  border:1px solid var(--champagne);
+  border-radius:999px;
+  color:#f4dfad;
+  font-weight:800;
+}
+.portfolio-cta:hover { background:rgba(255,255,255,.08); }
+.full-song-toggle { font:inherit; cursor:pointer; }
+.payment-step {
+  background:#fffaf3;
+  border:1px solid #e5d8c7;
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 10px 35px rgba(49,28,42,.08);
+}
+.payment-step h3 { font-size:2rem; margin-bottom:10px; }
+.payment-step .btn { margin-top:8px; }
+@media (max-width:850px) {
+  .hero { min-height:620px; }
+  .hero-content { padding:84px 0 72px; }
+  .hero::after { background:linear-gradient(90deg, rgba(25,13,21,.76), rgba(25,13,21,.52)); }
+}
+</style>
+
 </head>
 <body>
   <header>
@@ -492,6 +577,7 @@
         <div class="nav-links">
           <a href="#how">How It Works</a>
           <a href="#samples">Samples</a>
+          <a href="portfolio.html">Portfolio</a>
           <a href="#pricing">Pricing</a>
           <a href="#story">Tell Me Your Story</a>
         </div>
@@ -500,24 +586,23 @@
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
+    <section class="hero" aria-label="Songs by Splash custom personalized song service">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="a_warm_golden_hour_outdoor_scene_in_a_shallow_dep.png">
+        <source src="songs-by-splash-homepage-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-content">
+        <div class="hero-copy">
           <div class="eyebrow">Custom personalized songs made from real stories</div>
-          <h1>Your story, turned into a <span>custom song.</span></h1>
-          <p>
-            Songs by Splash creates personalized songs from your real memories, names, places, inside jokes and meaningful moments—for weddings, anniversaries, birthdays, love stories, friendship tributes, family milestones and unforgettable gifts.
-          </p>
+          <h1>Your story.<br><span>Your song.</span></h1>
+          <p>Songs by Splash turns your real memories, names, places, inside jokes and meaningful moments into a one-of-a-kind custom song for weddings, anniversaries, birthdays, love stories, friendship tributes, family milestones and unforgettable gifts.</p>
           <div class="buttons">
-            <a class="btn primary" href="#story">Start Your Song</a>
-            <a class="btn secondary" href="#samples">Hear Samples</a>
+            <button class="btn primary" id="heroPlay" type="button" aria-pressed="false">▶ Hear the Story Become a Song</button>
+            <a class="btn secondary" href="#story">Start My Song</a>
           </div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-content">
-            <h3>A custom song built from the details that matter.</h3>
-            <p>Not a name dropped into a template. Your memories, places, sayings and moments are shaped into original lyrics and music.</p>
-          </div>
+          <div class="hero-categories">Weddings &nbsp;•&nbsp; Love Stories &nbsp;•&nbsp; Family &nbsp;•&nbsp; Friendship &nbsp;•&nbsp; Tributes</div>
+          <audio id="heroAudio" preload="metadata">
+            <source src="you-found-your-home-sample.mp3" type="audio/mpeg">
+          </audio>
         </div>
       </div>
     </section>
@@ -561,19 +646,24 @@
             <h3>Friendship Tribute</h3>
             <p><strong>Every Version of Us</strong><br>A song about a friendship that grows through every age, every chapter, and every version of who you become.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="every-version-of-us-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-<a class="full-song-link" href="every-version-of-us.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
+            <button class="full-song-link full-song-toggle" type="button" data-sample="every-version-of-us-sample.mp3" data-full="every-version-of-us.mp3">Listen to the full song →</button>
           </div>
           <div class="sample-card">
             <h3>Love Story</h3>
             <p><strong>Apartment Fifteen on Oleander</strong><br>A nostalgic love song about the place where young love, big dreams, and a lifetime of memories began.</p>
             <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="apartment-fifteen-on-oleander-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
-<a class="full-song-link" href="apartment-fifteen-on-oleander.mp3" target="_blank" rel="noopener">Listen to the full song →</a>
+            <button class="full-song-link full-song-toggle" type="button" data-sample="apartment-fifteen-on-oleander-sample.mp3" data-full="apartment-fifteen-on-oleander.mp3">Listen to the full song →</button>
           </div>
           <div class="sample-card">
-            <h3>Wedding Song</h3>
-            <p><strong>Kenny &amp; Lachie</strong><br>A personal wedding song built from the couple’s real story, shared memories, humor, and the moments that brought them here.</p>
-            <a class="sample-link" href="/custom-wedding-song/">Learn about custom wedding songs →</a>
+            <h3>Mother-Son Wedding</h3>
+            <p><strong>You Found Your Home</strong><br>A heartfelt mother-son dance song about watching a little boy grow up, fall in love, and find a home of his own.</p>
+            <audio controls preload="metadata" style="width:100%; margin-top:16px;"><source src="you-found-your-home-sample.mp3" type="audio/mpeg">Your browser does not support the audio player.</audio>
+            <button class="full-song-link full-song-toggle" type="button" data-sample="you-found-your-home-sample.mp3" data-full="you-found-your-home.mp3">Listen to the full song →</button>
+            <div style="margin-top:12px;"><a class="sample-link" href="/custom-wedding-song/">Explore custom wedding songs →</a></div>
           </div>
+        </div>
+        <div class="portfolio-cta-wrap">
+          <a class="portfolio-cta" href="portfolio.html">Explore the Full Portfolio →</a>
         </div>
       </div>
     </section>
@@ -595,7 +685,7 @@
               <li>One revision</li>
               <li>Digital delivery</li>
             </ul>
-            <a class="btn secondary" href="#story">Choose Splash Song</a>
+            <a class="btn secondary package-select" href="#story" data-package="Splash Song" data-price="99">Choose Splash Song</a>
           </div>
 
           <div class="card featured">
@@ -609,7 +699,7 @@
               <li>Two revisions</li>
               <li>Custom cover artwork</li>
             </ul>
-            <a class="btn primary" href="#story">Choose Story Song</a>
+            <a class="btn primary package-select" href="#story" data-package="Story Song" data-price="175">Choose Story Song</a>
           </div>
 
           <div class="card">
@@ -622,7 +712,7 @@
               <li>Cover artwork + lyric sheet</li>
               <li>Priority revisions</li>
             </ul>
-            <a class="btn secondary" href="#story">Choose Premium</a>
+            <a class="btn secondary package-select" href="#story" data-package="Wedding / Legacy" data-price="295">Choose Wedding / Legacy</a>
           </div>
         </div>
       </div>
@@ -653,7 +743,18 @@
           </div>
 
           <div>
-            <form action="https://formspree.io/f/xoevdwqr" method="POST">
+            <form id="songOrderForm" action="https://formspree.io/f/xoevdwqr" method="POST">
+              <input type="hidden" id="order_id" name="order_id" value="">
+              <input type="hidden" id="package_price" name="package_price" value="">
+              <div>
+                <label for="package">Choose your package</label>
+                <select id="package" name="package" required>
+                  <option value="" selected disabled>Select a package</option>
+                  <option value="Splash Song">Splash Song — $99</option>
+                  <option value="Story Song">Story Song — $175</option>
+                  <option value="Wedding / Legacy">Wedding / Legacy — $295</option>
+                </select>
+              </div>
               <div>
                 <label for="name">Your name</label>
                 <input id="name" name="name" type="text" placeholder="First and last name" required />
@@ -706,9 +807,17 @@
                 <label for="style">What should the song feel like?</label>
                 <textarea id="style" name="style" placeholder="Romantic, emotional, joyful, nostalgic, soulful, funny, upbeat..."></textarea>
               </div>
-              <button class="btn primary" type="submit">Start My Song 💋</button>
-              <p class="small">No need to write the whole story yet. I'll personally follow up for the details.</p>
+              <button class="btn primary" type="submit">Submit My Story &amp; Continue to Payment 💋</button>
+              <p class="small">Your story is submitted first so I can match it to your payment. You’ll pay on the next step.</p>
             </form>
+            <div id="paymentStep" class="payment-step" hidden>
+              <div class="eyebrow">Story received</div>
+              <h3>One last step: payment</h3>
+              <p id="paymentSummary"></p>
+              <p>Your order number is <strong id="orderNumber"></strong>. Your name and order number will be included in the Venmo payment note so I can match your payment to your song request.</p>
+              <a id="venmoPay" class="btn primary" href="#" target="_blank" rel="noopener">Pay with Venmo</a>
+              <p class="note">Venmo: <strong>@songsbysplash</strong>. Please don’t remove the order number from the payment note.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -768,5 +877,110 @@
       <div class="signature">Love, Splash 💋</div>
     </div>
   </footer>
+
+<script>
+  const heroPlay = document.getElementById('heroPlay');
+  const heroAudio = document.getElementById('heroAudio');
+  if (heroPlay && heroAudio) {
+    heroPlay.addEventListener('click', () => {
+      if (heroAudio.paused) {
+        document.querySelectorAll('audio').forEach(a => { if (a !== heroAudio) a.pause(); });
+        heroAudio.play();
+        heroPlay.textContent = '❚❚ Pause Song';
+        heroPlay.setAttribute('aria-pressed', 'true');
+      } else {
+        heroAudio.pause();
+        heroPlay.textContent = '▶ Hear the Story Become a Song';
+        heroPlay.setAttribute('aria-pressed', 'false');
+      }
+    });
+    heroAudio.addEventListener('ended', () => {
+      heroPlay.textContent = '▶ Hear the Story Become a Song';
+      heroPlay.setAttribute('aria-pressed', 'false');
+    });
+  }
+
+  document.querySelectorAll('.full-song-toggle').forEach(function(button) {
+    button.addEventListener('click', function() {
+      const card = button.closest('.sample-card');
+      const audio = card ? card.querySelector('audio') : null;
+      const source = audio ? audio.querySelector('source') : null;
+      if (!audio || !source) return;
+      const showingFull = button.dataset.state === 'full';
+      source.src = showingFull ? button.dataset.sample : button.dataset.full;
+      audio.load();
+      document.querySelectorAll('audio').forEach(a => { if (a !== audio) a.pause(); });
+      audio.play().catch(function(){});
+      if (showingFull) {
+        button.dataset.state = 'sample';
+        button.textContent = 'Listen to the full song →';
+      } else {
+        button.dataset.state = 'full';
+        button.textContent = 'Back to short sample';
+      }
+    });
+  });
+
+  (function () {
+    const form = document.getElementById('songOrderForm');
+    const packageSelect = document.getElementById('package');
+    const priceField = document.getElementById('package_price');
+    const orderField = document.getElementById('order_id');
+    const paymentStep = document.getElementById('paymentStep');
+    const venmoPay = document.getElementById('venmoPay');
+    const paymentSummary = document.getElementById('paymentSummary');
+    const orderNumber = document.getElementById('orderNumber');
+    const prices = {'Splash Song':'99','Story Song':'175','Wedding / Legacy':'295'};
+    if (!form || !packageSelect) return;
+
+    document.querySelectorAll('.package-select').forEach(btn => {
+      btn.addEventListener('click', () => {
+        packageSelect.value = btn.dataset.package;
+        priceField.value = btn.dataset.price;
+      });
+    });
+    packageSelect.addEventListener('change', () => {
+      priceField.value = prices[packageSelect.value] || '';
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const pkg = packageSelect.value;
+      const price = prices[pkg];
+      if (!pkg || !price) return;
+      const name = document.getElementById('name').value.trim();
+      const now = new Date();
+      const date = String(now.getFullYear()).slice(-2) + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0');
+      const code = Math.random().toString(36).slice(2,6).toUpperCase();
+      const orderId = 'SBS-' + date + '-' + code;
+      orderField.value = orderId;
+      priceField.value = price;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const oldText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!response.ok) throw new Error('Form submission failed');
+        const note = `Songs by Splash | ${orderId} | ${name} | ${pkg}`;
+        venmoPay.href = `https://venmo.com/songsbysplash?txn=pay&amount=${encodeURIComponent(price)}&note=${encodeURIComponent(note)}`;
+        venmoPay.textContent = `Pay $${price} with Venmo`;
+        orderNumber.textContent = orderId;
+        paymentSummary.textContent = `${pkg} — $${price}`;
+        form.hidden = true;
+        paymentStep.hidden = false;
+        paymentStep.scrollIntoView({behavior:'smooth', block:'center'});
+      } catch (err) {
+        alert('Your story could not be submitted yet. Please try again. No payment has been taken.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = oldText;
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
