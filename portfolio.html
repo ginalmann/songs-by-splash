@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the Songs by Splash portfolio of custom songs for weddings, love stories, friendship, family, and unforgettable moments." />
+  <title>Portfolio | Songs by Splash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f7f2ea; --paper:#fffaf3; --ink:#201a1e; --muted:#75686f;
+      --accent:#4a243b; --accent-dark:#321627; --champagne:#d6b77a;
+      --line:#e5d8c7; --shadow:0 18px 50px rgba(49,28,42,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(247,242,234,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,216,199,.9)}
+    nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:"DM Serif Display",serif;font-size:1.5rem;color:var(--accent)}
+    .site-logo{display:flex;align-items:center}
+    .site-logo img{display:block;width:auto;height:48px;max-width:220px;object-fit:contain}
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:.95rem}
+    .nav-links a.active{color:var(--accent);font-weight:800}
+    .hero{padding:86px 0 64px;background:
+      radial-gradient(circle at 18% 20%, rgba(214,183,122,.28), transparent 28%),
+      linear-gradient(135deg,#fffaf3 0%,#f7f2ea 60%,#efe2d3 100%)}
+    .eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:800;margin-bottom:16px}
+    h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400;line-height:1.05;margin-top:0}
+    h1{font-size:clamp(3.2rem,8vw,6rem);margin-bottom:18px}
+    h1 span{color:var(--accent)}
+    .hero p{font-size:1.16rem;color:var(--muted);max-width:720px;margin:0}
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 12px}
+    .filter-btn{border:1px solid var(--line);background:var(--paper);padding:10px 15px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer}
+    .filter-btn.active,.filter-btn:hover{background:var(--accent);color:white;border-color:var(--accent)}
+    .portfolio{padding:62px 0 84px}
+    .section-title{max-width:700px;margin-bottom:30px}
+    .section-title h2{font-size:clamp(2.3rem,5vw,4rem);margin-bottom:12px}
+    .section-title p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .song-card{background:var(--paper);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 36px rgba(49,28,42,.08)}
+    .cover{aspect-ratio:1/1;display:flex;align-items:flex-end;padding:24px;color:white;position:relative;overflow:hidden}
+    .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(17,10,14,.72) 100%)}
+    .cover-content{position:relative;z-index:2}
+    .cover small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:800;opacity:.82;margin-bottom:6px}
+    .cover h3{font-size:2rem;margin:0}
+    .friendship{background:linear-gradient(135deg,#543149,#8a5d70 56%,#d6b77a)}
+    .love{background:linear-gradient(135deg,#30202a,#7a493f 55%,#d6a06d)}
+    .wedding{background:linear-gradient(135deg,#2d1b29,#643b52 52%,#c79f70)}
+    .song-body{padding:24px}
+    .song-body p{color:var(--muted);margin:0 0 14px}
+    audio{width:100%;margin-top:4px}
+    .full-song-link{display:inline-block;margin-top:14px;padding:10px 16px;background:var(--champagne);color:#201a1e;font:inherit;font-weight:800;border-radius:999px;border:1px solid var(--champagne);cursor:pointer}
+    .full-song-link:hover{background:#f1ddb0}
+    .story-note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+    .occasion{padding:72px 0;background:#241720;color:white}
+    .occasion h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:12px}
+    .occasion p{color:rgba(255,255,255,.72);max-width:680px}
+    .occasion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .occasion-card{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px;background:rgba(255,255,255,.06)}
+    .occasion-card strong{display:block;font-family:"DM Serif Display",serif;font-size:1.45rem;margin-bottom:5px}
+    .cta{padding:78px 0;text-align:center}
+    .cta-box{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:42px;box-shadow:var(--shadow)}
+    .cta h2{font-size:clamp(2.3rem,5vw,4rem);margin-bottom:12px}
+    .cta p{color:var(--muted);max-width:640px;margin:0 auto 22px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;background:var(--accent);color:white;font-weight:800}
+    .btn:hover{background:var(--accent-dark)}
+    footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px}
+    .signature{font-family:"DM Serif Display",serif;font-style:italic;color:var(--accent);font-size:1.55rem}
+    @media(max-width:850px){
+      .grid,.occasion-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hero{padding-top:56px}
+      .footer-grid{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="site-logo" href="index.html" aria-label="Songs by Splash home"><img src="songs-by-splash-logo-header-clean.png" alt="Songs by Splash"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="portfolio.html">Portfolio</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#story">Start My Song</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Songs made from real stories</div>
+    <h1>Hear the story.<br><span>Feel the song.</span></h1>
+    <p>Explore custom songs created from meaningful memories, relationships, milestones, and the little details that make a story personal.</p>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="weddings">Weddings</button>
+      <button class="filter-btn" data-filter="love">Love Stories</button>
+      <button class="filter-btn" data-filter="friendship">Friendship</button>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Featured songs</h2>
+      <p>Listen to a short sample or play the full song without leaving the page.</p>
+    </div>
+
+    <div class="grid" id="portfolioGrid">
+      <article class="song-card" data-category="friendship">
+        <div class="cover friendship">
+          <div class="cover-content">
+            <small>Friendship Tribute</small>
+            <h3>Every Version of Us</h3>
+          </div>
+        </div>
+        <div class="song-body">
+          <p>A song about a friendship that grows through every age, every chapter, and every version of who you become.</p>
+          <audio controls preload="metadata"><source src="every-version-of-us-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="every-version-of-us-sample.mp3" data-full="every-version-of-us.mp3">Listen to the full song →</button>
+          <div class="story-note">Created from shared history, growing up together, and the kind of friendship that becomes family.</div>
+        </div>
+      </article>
+
+      <article class="song-card" data-category="love">
+        <div class="cover love">
+          <div class="cover-content">
+            <small>Love Story</small>
+            <h3>Apartment Fifteen on Oleander</h3>
+          </div>
+        </div>
+        <div class="song-body">
+          <p>A nostalgic love song about the place where young love, big dreams, and a lifetime of memories began.</p>
+          <audio controls preload="metadata"><source src="apartment-fifteen-on-oleander-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="apartment-fifteen-on-oleander-sample.mp3" data-full="apartment-fifteen-on-oleander.mp3">Listen to the full song →</button>
+          <div class="story-note">Built around a meaningful place and the memories that still live there years later.</div>
+        </div>
+      </article>
+
+      <article class="song-card" data-category="weddings">
+        <div class="cover wedding">
+          <div class="cover-content">
+            <small>Mother-Son Wedding</small>
+            <h3>You Found Your Home</h3>
+          </div>
+        </div>
+        <div class="song-body">
+          <p>A heartfelt mother-son dance song about watching a little boy grow up, fall in love, and find a home of his own.</p>
+          <audio controls preload="metadata"><source src="you-found-your-home-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="you-found-your-home-sample.mp3" data-full="you-found-your-home.mp3">Listen to the full song →</button>
+          <div class="story-note">Inspired by childhood memories, dandelions, growing up, and a mother's joy in seeing her son find his person.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="occasion">
+  <div class="wrap">
+    <h2>What kind of story can become a song?</h2>
+    <p>Almost anything meaningful. The portfolio will continue growing as new stories become new songs.</p>
+    <div class="occasion-grid">
+      <div class="occasion-card"><strong>Weddings</strong>First dances, mother-son, father-daughter, vows, and wedding gifts.</div>
+      <div class="occasion-card"><strong>Love Stories</strong>How you met, anniversaries, favorite places, and the moments that became your story.</div>
+      <div class="occasion-card"><strong>Family</strong>Parents, children, grandparents, milestones, and memories worth keeping.</div>
+      <div class="occasion-card"><strong>Friendship</strong>Inside jokes, growing up together, adventures, and chosen family.</div>
+      <div class="occasion-card"><strong>Tributes</strong>Meaningful remembrance songs created with warmth, care, and personal details.</div>
+      <div class="occasion-card"><strong>Just Because</strong>A song doesn't need an occasion. Sometimes someone simply deserves one.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="eyebrow">Your turn</div>
+      <h2>What would your story sound like?</h2>
+      <p>Tell me the moments that matter. I'll turn them into a song made just for you.</p>
+      <a class="btn" href="index.html#story">Start My Song 💋</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div><div class="brand">Songs by Splash</div><div>Your story. Your song.</div></div>
+    <div class="signature">Love, Splash 💋</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.full-song-toggle').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const card = button.closest('.song-card');
+    const audio = card ? card.querySelector('audio') : null;
+    const source = audio ? audio.querySelector('source') : null;
+    if (!audio || !source) return;
+
+    const showingFull = button.dataset.state === 'full';
+    source.src = showingFull ? button.dataset.sample : button.dataset.full;
+    audio.load();
+    audio.play().catch(function(){});
+
+    if (showingFull) {
+      button.dataset.state = 'sample';
+      button.textContent = 'Listen to the full song →';
+    } else {
+      button.dataset.state = 'full';
+      button.textContent = 'Back to short sample';
+    }
+  });
+});
+
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.song-card').forEach(function(card) {
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
