@@ -694,6 +694,17 @@
 }
 </style>
 
+<style>
+.hero-categories a{
+  color:inherit;
+  text-decoration:none;
+  transition:color .2s ease;
+}
+.hero-categories a:hover{
+  color:#D6B77A;
+}
+</style>
+
 </head>
 <body>
   <header>
@@ -726,7 +737,17 @@
             <button class="btn primary" id="heroPlay" type="button" aria-pressed="false">▶ Hear the Story Become a Song</button>
             <a class="btn secondary" href="#story">Start My Song</a>
           </div>
-          <div class="hero-categories">Weddings &nbsp;•&nbsp; Love Stories &nbsp;•&nbsp; Family &nbsp;•&nbsp; Friendship &nbsp;•&nbsp; Tributes</div>
+          <div class="hero-categories">
+            <a href="/custom-wedding-song/">Weddings</a>
+            <span>&nbsp;•&nbsp;</span>
+            <a href="/portfolio.html">Love Stories</a>
+            <span>&nbsp;•&nbsp;</span>
+            <a href="/portfolio.html">Family</a>
+            <span>&nbsp;•&nbsp;</span>
+            <a href="/portfolio.html">Friendship</a>
+            <span>&nbsp;•&nbsp;</span>
+            <a href="/portfolio.html">Tributes</a>
+          </div>
           <audio id="heroAudio" preload="metadata">
             <source src="you-found-your-home-sample.mp3" type="audio/mpeg">
           </audio>
