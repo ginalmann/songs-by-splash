@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root{
       --bg:#f7f2ea; --paper:#fffaf3; --ink:#201a1e; --muted:#75686f;
       --accent:#4a243b; --accent-dark:#321627; --champagne:#d6b77a;
       --line:#e5d8c7; --shadow:0 18px 50px rgba(49,28,42,.12);
@@ -21,10 +21,9 @@
     .wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
     header{position:sticky;top:0;z-index:20;background:rgba(247,242,234,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,216,199,.9)}
     nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-family:"DM Serif Display",serif;font-size:1.5rem;color:var(--accent)}
     .site-logo{display:flex;align-items:center}
     .site-logo img{display:block;width:auto;height:48px;max-width:220px;object-fit:contain}
-    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:.95rem}
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:.95rem;align-items:center}
     .nav-links a.active{color:var(--accent);font-weight:800}
     .hero{padding:86px 0 64px;background:
       radial-gradient(circle at 18% 20%, rgba(214,183,122,.28), transparent 28%),
@@ -43,20 +42,23 @@
     .section-title p{color:var(--muted);margin:0}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .song-card{background:var(--paper);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 36px rgba(49,28,42,.08)}
-    .cover{aspect-ratio:1/1;display:flex;align-items:flex-end;padding:24px;color:white;position:relative;overflow:hidden}
-    .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(17,10,14,.72) 100%)}
+    .cover{aspect-ratio:1/1;display:flex;align-items:flex-end;padding:24px;color:white;position:relative;overflow:hidden;background-size:cover;background-position:center}
+    .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,10,14,.03) 25%,rgba(17,10,14,.78) 100%)}
     .cover-content{position:relative;z-index:2}
-    .cover small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:800;opacity:.82;margin-bottom:6px}
+    .cover small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:800;opacity:.88;margin-bottom:6px}
     .cover h3{font-size:2rem;margin:0}
-    .friendship{background:linear-gradient(135deg,#543149,#8a5d70 56%,#d6b77a)}
+    .friendship{background-image:url('/every-version-of-us-cover.png')}
     .love{background:linear-gradient(135deg,#30202a,#7a493f 55%,#d6a06d)}
-    .wedding{background:linear-gradient(135deg,#2d1b29,#643b52 52%,#c79f70)}
     .song-body{padding:24px}
     .song-body p{color:var(--muted);margin:0 0 14px}
     audio{width:100%;margin-top:4px}
     .full-song-link{display:inline-block;margin-top:14px;padding:10px 16px;background:var(--champagne);color:#201a1e;font:inherit;font-weight:800;border-radius:999px;border:1px solid var(--champagne);cursor:pointer}
     .full-song-link:hover{background:#f1ddb0}
     .story-note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+    .wedding-portfolio-cta{margin-top:32px;padding:28px 30px;border-radius:24px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .wedding-portfolio-cta h3{font-size:2rem;margin:0 0 7px}
+    .wedding-portfolio-cta p{margin:0;color:rgba(255,255,255,.78)}
+    .wedding-portfolio-cta a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--champagne);color:var(--ink);font-weight:800;white-space:nowrap}
     .occasion{padding:72px 0;background:#241720;color:white}
     .occasion h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:12px}
     .occasion p{color:rgba(255,255,255,.72);max-width:680px}
@@ -70,13 +72,14 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;background:var(--accent);color:white;font-weight:800}
     .btn:hover{background:var(--accent-dark)}
     footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
-    .footer-grid{display:flex;justify-content:space-between;gap:20px}
-    .signature{font-family:"DM Serif Display",serif;font-style:italic;color:var(--accent);font-size:1.55rem}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .brand{font-family:"DM Serif Display",serif;font-size:1.5rem;color:var(--accent)}
+    .footer-links a{font-weight:700;color:var(--accent)}
     @media(max-width:850px){
       .grid,.occasion-grid{grid-template-columns:1fr}
       .nav-links{display:none}
       .hero{padding-top:56px}
-      .footer-grid{flex-direction:column}
+      .footer-grid,.wedding-portfolio-cta{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
@@ -84,12 +87,14 @@
 <header>
   <div class="wrap">
     <nav>
-      <a class="site-logo" href="index.html" aria-label="Songs by Splash home"><img src="songs-by-splash-logo-header-clean.png" alt="Songs by Splash"></a>
+      <a class="site-logo" href="/" aria-label="Songs by Splash home"><img src="/songs-by-splash-cream-logo.png" alt="Songs by Splash"></a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a class="active" href="portfolio.html">Portfolio</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#story">Start My Song</a>
+        <a href="/">Home</a>
+        <a class="active" href="/portfolio.html">Portfolio</a>
+        <a href="/custom-wedding-song/">Wedding Songs</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#story">Share Your Story</a>
+        <a href="/contact/">Contact</a>
       </div>
     </nav>
   </div>
@@ -118,6 +123,7 @@
     </div>
 
     <div class="grid" id="portfolioGrid">
+
       <article class="song-card" data-category="friendship">
         <div class="cover friendship">
           <div class="cover-content">
@@ -127,8 +133,8 @@
         </div>
         <div class="song-body">
           <p>A song about a friendship that grows through every age, every chapter, and every version of who you become.</p>
-          <audio controls preload="metadata"><source src="every-version-of-us-sample.mp3" type="audio/mpeg"></audio>
-          <button class="full-song-link full-song-toggle" type="button" data-sample="every-version-of-us-sample.mp3" data-full="every-version-of-us.mp3">Listen to the full song →</button>
+          <audio controls preload="metadata"><source src="/every-version-of-us-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="/every-version-of-us-sample.mp3" data-full="/every-version-of-us.mp3">Listen to the full song →</button>
           <div class="story-note">Created from shared history, growing up together, and the kind of friendship that becomes family.</div>
         </div>
       </article>
@@ -142,26 +148,80 @@
         </div>
         <div class="song-body">
           <p>A nostalgic love song about the place where young love, big dreams, and a lifetime of memories began.</p>
-          <audio controls preload="metadata"><source src="apartment-fifteen-on-oleander-sample.mp3" type="audio/mpeg"></audio>
-          <button class="full-song-link full-song-toggle" type="button" data-sample="apartment-fifteen-on-oleander-sample.mp3" data-full="apartment-fifteen-on-oleander.mp3">Listen to the full song →</button>
+          <audio controls preload="metadata"><source src="/apartment-fifteen-on-oleander-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="/apartment-fifteen-on-oleander-sample.mp3" data-full="/apartment-fifteen-on-oleander.mp3">Listen to the full song →</button>
           <div class="story-note">Built around a meaningful place and the memories that still live there years later.</div>
         </div>
       </article>
 
       <article class="song-card" data-category="weddings">
-        <div class="cover wedding">
+        <div class="cover" style="background-image:url('/you-found-your-home-cover.png')">
           <div class="cover-content">
-            <small>Mother-Son Wedding</small>
+            <small>Mother-Son Dance</small>
             <h3>You Found Your Home</h3>
           </div>
         </div>
         <div class="song-body">
           <p>A heartfelt mother-son dance song about watching a little boy grow up, fall in love, and find a home of his own.</p>
-          <audio controls preload="metadata"><source src="you-found-your-home-sample.mp3" type="audio/mpeg"></audio>
-          <button class="full-song-link full-song-toggle" type="button" data-sample="you-found-your-home-sample.mp3" data-full="you-found-your-home.mp3">Listen to the full song →</button>
+          <audio controls preload="metadata"><source src="/you-found-your-home-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="/you-found-your-home-sample.mp3" data-full="/you-found-your-home.mp3">Listen to the full song →</button>
           <div class="story-note">Inspired by childhood memories, dandelions, growing up, and a mother's joy in seeing her son find his person.</div>
         </div>
       </article>
+
+      <article class="song-card" data-category="weddings">
+        <div class="cover" style="background-image:url('/all-along-cover.png')">
+          <div class="cover-content">
+            <small>Father-Daughter Dance</small>
+            <h3>All Along</h3>
+          </div>
+        </div>
+        <div class="song-body">
+          <p>A father's song to his daughter, looking back on the little girl he raised and the love that has been there all along.</p>
+          <audio controls preload="metadata"><source src="/all-along-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="/all-along-sample.mp3" data-full="/all-along.mp3">Listen to the full song →</button>
+          <div class="story-note">A father-daughter dance built around growing up, letting go, and a love that never changed.</div>
+        </div>
+      </article>
+
+      <article class="song-card" data-category="weddings">
+        <div class="cover" style="background-image:url('/leave-the-light-on-cover.png')">
+          <div class="cover-content">
+            <small>First Dance</small>
+            <h3>Leave the Light On</h3>
+          </div>
+        </div>
+        <div class="song-body">
+          <p>A romantic first-dance song about choosing each other, building a life together, and always leaving the light on for the person you love.</p>
+          <audio controls preload="metadata"><source src="/leave-the-light-on-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="/leave-the-light-on-sample.mp3" data-full="/leave-the-light-on.mp3">Listen to the full song →</button>
+          <div class="story-note">A first-dance love story centered on home, commitment, and choosing one another again and again.</div>
+        </div>
+      </article>
+
+      <article class="song-card" data-category="weddings">
+        <div class="cover" style="background-image:url('/she-said-yes-anyway-cover.png')">
+          <div class="cover-content">
+            <small>Best Man Toast</small>
+            <h3>She Said Yes Anyway</h3>
+          </div>
+        </div>
+        <div class="song-body">
+          <p>A funny, personal wedding toast turned into a song—part roast, part tribute, and made for a best friend.</p>
+          <audio controls preload="metadata"><source src="/she-said-yes-anyway-sample.mp3" type="audio/mpeg"></audio>
+          <button class="full-song-link full-song-toggle" type="button" data-sample="/she-said-yes-anyway-sample.mp3" data-full="/she-said-yes-anyway.mp3">Listen to the full song →</button>
+          <div class="story-note">A playful way to turn stories, inside jokes, and a best-man speech into part of the reception.</div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="wedding-portfolio-cta">
+      <div>
+        <h3>Looking specifically for a wedding song?</h3>
+        <p>Explore first dances, parent dances, wedding-party songs, and personalized wedding-song ideas.</p>
+      </div>
+      <a href="/custom-wedding-song/">Explore Wedding Songs →</a>
     </div>
   </div>
 </section>
@@ -171,7 +231,7 @@
     <h2>What kind of story can become a song?</h2>
     <p>Almost anything meaningful. The portfolio will continue growing as new stories become new songs.</p>
     <div class="occasion-grid">
-      <div class="occasion-card"><strong>Weddings</strong>First dances, mother-son, father-daughter, vows, and wedding gifts.</div>
+      <div class="occasion-card"><strong>Weddings</strong>First dances, mother-son, father-daughter, wedding-party songs, vows, and gifts.</div>
       <div class="occasion-card"><strong>Love Stories</strong>How you met, anniversaries, favorite places, and the moments that became your story.</div>
       <div class="occasion-card"><strong>Family</strong>Parents, children, grandparents, milestones, and memories worth keeping.</div>
       <div class="occasion-card"><strong>Friendship</strong>Inside jokes, growing up together, adventures, and chosen family.</div>
@@ -186,8 +246,8 @@
     <div class="cta-box">
       <div class="eyebrow">Your turn</div>
       <h2>What would your story sound like?</h2>
-      <p>Tell me the moments that matter. I'll turn them into a song made just for you.</p>
-      <a class="btn" href="index.html#story">Start My Song 💋</a>
+      <p>Share the moments that matter and turn them into a song made just for you.</p>
+      <a class="btn" href="/#story">Start My Song</a>
     </div>
   </div>
 </section>
@@ -195,8 +255,15 @@
 
 <footer>
   <div class="wrap footer-grid">
-    <div><div class="brand">Songs by Splash</div><div>Your story. Your song.</div></div>
-    <div class="signature">Love, Splash 💋</div>
+    <div>
+      <div class="brand">Songs by Splash</div>
+      <div>Your story. Your song.</div>
+    </div>
+    <div class="footer-links">
+      <a href="/contact/">Contact</a>
+      <span> • </span>
+      <a href="mailto:hello@songsbysplash.com">hello@songsbysplash.com</a>
+    </div>
   </div>
 </footer>
 
@@ -211,6 +278,11 @@ document.querySelectorAll('.full-song-toggle').forEach(function(button) {
     const showingFull = button.dataset.state === 'full';
     source.src = showingFull ? button.dataset.sample : button.dataset.full;
     audio.load();
+
+    document.querySelectorAll('audio').forEach(function(a){
+      if (a !== audio) a.pause();
+    });
+
     audio.play().catch(function(){});
 
     if (showingFull) {
@@ -225,7 +297,7 @@ document.querySelectorAll('.full-song-toggle').forEach(function(button) {
 
 document.querySelectorAll('.filter-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
     const filter = btn.dataset.filter;
     document.querySelectorAll('.song-card').forEach(function(card) {
