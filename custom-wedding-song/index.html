@@ -507,6 +507,38 @@
 <style>
 .wedding-sample-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:34px}.wedding-song-card{overflow:hidden;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}.wedding-song-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}.wedding-song-copy{padding:24px}.wedding-song-copy h3{font-size:1.65rem;margin:6px 0 10px}.wedding-song-copy p{color:rgba(255,255,255,.76);min-height:78px}.wedding-song-copy audio{width:100%;margin-top:12px}.song-type{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:800;color:#D6B77A}@media(max-width:760px){.wedding-sample-grid{grid-template-columns:1fr}.wedding-song-copy p{min-height:auto}}
 </style>
+
+<style>
+.wedding-samples-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
+  align-items:start;
+}
+.wedding-sample-card{
+  max-width:520px;
+  width:100%;
+  margin:0 auto;
+}
+.wedding-sample-card img{
+  width:100%;
+  max-width:420px;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 18px;
+  border-radius:18px;
+}
+.wedding-sample-card audio{
+  width:100%;
+  margin-top:14px;
+}
+@media(max-width:800px){
+  .wedding-samples-grid{grid-template-columns:1fr;}
+  .wedding-sample-card img{max-width:360px;}
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -552,39 +584,39 @@
     </div>
     <div class="wedding-sample-grid">
       <article class="wedding-song-card">
-        <img src="../you-found-your-home-cover.png" alt="You Found Your Home mother-son dance song cover">
+        <img src="/you-found-your-home-cover.png" alt="You Found Your Home mother-son dance song cover">
         <div class="wedding-song-copy">
           <div class="song-type">Mother-Son Dance</div>
           <h3>You Found Your Home</h3>
           <p>A heartfelt song from a mother to her son—watching the little boy she raised grow up, fall in love, and find a home of his own.</p>
-          <audio controls preload="metadata"><source src="../you-found-your-home.mp3" type="audio/mpeg"></audio>
+          <audio controls preload="metadata"><source src="/you-found-your-home.mp3" type="audio/mpeg"></audio>
         </div>
       </article>
       <article class="wedding-song-card">
-        <img src="../all-along-cover.png" alt="All Along father-daughter dance song cover">
+        <img src="/all-along-cover.png" alt="All Along father-daughter dance song cover">
         <div class="wedding-song-copy">
           <div class="song-type">Father-Daughter Dance</div>
           <h3>All Along</h3>
           <p>A father's song to his daughter, looking back on the little girl he raised and the love that has been there all along.</p>
-          <audio controls preload="metadata"><source src="../all-along.mp3" type="audio/mpeg"></audio>
+          <audio controls preload="metadata"><source src="/all-along.mp3" type="audio/mpeg"></audio>
         </div>
       </article>
       <article class="wedding-song-card">
-        <img src="../leave-the-light-on-cover.png" alt="Leave the Light On first dance song cover">
+        <img src="/leave-the-light-on-cover.png" alt="Leave the Light On first dance song cover">
         <div class="wedding-song-copy">
           <div class="song-type">First Dance</div>
           <h3>Leave the Light On</h3>
           <p>A romantic first-dance song about choosing each other, building a life together, and always leaving the light on for the person you love.</p>
-          <audio controls preload="metadata"><source src="../leave-the-light-on.mp3" type="audio/mpeg"></audio>
+          <audio controls preload="metadata"><source src="/leave-the-light-on.mp3" type="audio/mpeg"></audio>
         </div>
       </article>
       <article class="wedding-song-card">
-        <img src="../she-said-yes-anyway-cover.png" alt="She Said Yes Anyway best man toast song cover">
+        <img src="/she-said-yes-anyway-cover.png" alt="She Said Yes Anyway best man toast song cover">
         <div class="wedding-song-copy">
           <div class="song-type">Best Man Toast</div>
           <h3>She Said Yes Anyway</h3>
           <p>A funny, personal wedding toast turned into a song—part roast, part tribute, and made for a best friend.</p>
-          <audio controls preload="metadata"><source src="../she-said-yes-anyway.mp3" type="audio/mpeg"></audio>
+          <audio controls preload="metadata"><source src="/she-said-yes-anyway.mp3" type="audio/mpeg"></audio>
         </div>
       </article>
     </div>
