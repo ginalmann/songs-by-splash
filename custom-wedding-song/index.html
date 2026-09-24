@@ -545,6 +545,28 @@
 .full-song-toggle{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;border:1px solid #D6B77A;background:#D6B77A;color:#201A1E;font-weight:800;text-decoration:none;cursor:pointer;font-size:14px;padding:10px 16px;border-radius:999px}.full-song-toggle:hover{background:#F7F2EA;border-color:#F7F2EA}.song-listen-label{color:#F7F2EA!important;margin-top:18px;margin-bottom:8px}.wedding-song-copy audio{display:block!important;width:100%;min-height:40px;margin-top:0}
 </style>
 
+
+<style>
+.full-song-toggle{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  margin-top:14px !important;
+  padding:11px 18px !important;
+  border:1px solid #D6B77A !important;
+  border-radius:999px !important;
+  background:#D6B77A !important;
+  color:#201A1E !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+  letter-spacing:.06em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  cursor:pointer !important;
+}
+.full-song-toggle:hover{filter:brightness(1.06)}
+</style>
+
 </head>
 <body>
 <header>
@@ -597,7 +619,7 @@
           <p>A heartfelt song from a mother to her son—watching the little boy she raised grow up, fall in love, and find a home of his own.</p>
           <div class="song-listen-label">Listen to a sample</div>
 <audio controls preload="metadata" data-song-player="you-found-your-home"><source src="/you-found-your-home-sample.mp3" type="audio/mpeg"></audio>
-<button class="full-song-toggle" type="button" data-player="you-found-your-home" data-sample="/you-found-your-home-sample.mp3" data-full="/you-found-your-home.mp3">Listen to the full song →</button>
+<button class="full-song-toggle" type="button" data-player="you-found-your-home" data-sample="/you-found-your-home-sample.mp3" data-full="/you-found-your-home.mp3">▶ Listen to the full song</button>
         </div>
       </article>
       <article class="wedding-song-card">
@@ -608,7 +630,7 @@
           <p>A father's song to his daughter, looking back on the little girl he raised and the love that has been there all along.</p>
           <div class="song-listen-label">Listen to a sample</div>
 <audio controls preload="metadata" data-song-player="all-along"><source src="/all-along-sample.mp3" type="audio/mpeg"></audio>
-<button class="full-song-toggle" type="button" data-player="all-along" data-sample="/all-along-sample.mp3" data-full="/all-along.mp3">Listen to the full song →</button>
+<button class="full-song-toggle" type="button" data-player="all-along" data-sample="/all-along-sample.mp3" data-full="/all-along.mp3">▶ Listen to the full song</button>
         </div>
       </article>
       <article class="wedding-song-card">
@@ -619,7 +641,7 @@
           <p>A romantic first-dance song about choosing each other, building a life together, and always leaving the light on for the person you love.</p>
           <div class="song-listen-label">Listen to a sample</div>
 <audio controls preload="metadata" data-song-player="leave-the-light-on"><source src="/leave-the-light-on-sample.mp3" type="audio/mpeg"></audio>
-<button class="full-song-toggle" type="button" data-player="leave-the-light-on" data-sample="/leave-the-light-on-sample.mp3" data-full="/leave-the-light-on.mp3">Listen to the full song →</button>
+<button class="full-song-toggle" type="button" data-player="leave-the-light-on" data-sample="/leave-the-light-on-sample.mp3" data-full="/leave-the-light-on.mp3">▶ Listen to the full song</button>
         </div>
       </article>
       <article class="wedding-song-card">
@@ -630,7 +652,7 @@
           <p>A funny, personal wedding toast turned into a song—part roast, part tribute, and made for a best friend.</p>
           <div class="song-listen-label">Listen to a sample</div>
 <audio controls preload="metadata" data-song-player="she-said-yes-anyway"><source src="/she-said-yes-anyway-sample.mp3" type="audio/mpeg"></audio>
-<button class="full-song-toggle" type="button" data-player="she-said-yes-anyway" data-sample="/she-said-yes-anyway-sample.mp3" data-full="/she-said-yes-anyway.mp3">Listen to the full song →</button>
+<button class="full-song-toggle" type="button" data-player="she-said-yes-anyway" data-sample="/she-said-yes-anyway-sample.mp3" data-full="/she-said-yes-anyway.mp3">▶ Listen to the full song</button>
         </div>
       </article>
     </div>
@@ -716,7 +738,7 @@ document.querySelectorAll('.full-song-toggle').forEach(function(btn){
     source.setAttribute('src', showingFull ? btn.dataset.sample : btn.dataset.full);
     player.load();
     player.play().catch(function(){});
-    btn.textContent = showingFull ? 'Listen to the full song →' : 'Back to sample';
+    btn.textContent = showingFull ? '▶ Listen to the full song' : '← Back to sample';
   });
 });
 </script>
