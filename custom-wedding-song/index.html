@@ -567,6 +567,26 @@
 .full-song-toggle:hover{filter:brightness(1.06)}
 </style>
 
+
+<style>
+.hero-card-image{
+  padding:0 !important;
+  background:none !important;
+  min-height:0 !important;
+  align-items:stretch !important;
+}
+.hero-card-image img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:36px;
+  object-fit:cover;
+}
+@media(max-width:850px){
+  .hero-card-image img{border-radius:26px;}
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -594,11 +614,9 @@
           <a class="btn secondary" href="#wedding-samples">Hear Song Samples</a>
         </div>
       </div>
-      <div class="hero-card">
-        <div class="hero-card-content">
-          <h3>More personal than choosing someone else's song.</h3>
-          <p>Your relationship becomes the lyrics, the hook and the feeling of the song.</p>
-        </div>
+      <div class="hero-card hero-card-image">
+        <img src="/wedding-lifestyle.png"
+             alt="Bride and groom walking together at a warmly lit wedding reception with the message More personal than choosing someone else's song">
       </div>
     </div>
   </section>
