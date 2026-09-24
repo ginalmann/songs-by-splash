@@ -289,24 +289,13 @@
     .card p { color: var(--muted); margin: 0; }
 
     .samples {
-      background:
-        linear-gradient(rgba(32, 20, 29, .76), rgba(32, 20, 29, .86)),
-        url("sample-songs-background.png") center center / cover no-repeat;
+      background: #241720;
       color: white;
-      position: relative;
     }
 
-    .samples .section-title .eyebrow {
-      color: #D6B77A;
-      opacity: 1;
-      font-weight: 800;
-      text-shadow: 0 1px 10px rgba(0,0,0,.35);
-    }
-    .samples .section-title p { color: rgba(255,255,255,.88); }
+    .samples .section-title p { color: rgba(255,255,255,.72); }
     .sample-card {
-      background: rgba(42, 28, 38, .82);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      background: rgba(255,255,255,.07);
       border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
       padding: 24px;
@@ -600,65 +589,30 @@
 
 
 <style>
-/* Refined Sample Songs background treatment */
-#samples.samples{
-  position:relative;
-  background-image:
-    linear-gradient(90deg, rgba(32,26,30,.90) 0%, rgba(42,25,35,.82) 38%, rgba(42,25,35,.58) 66%, rgba(32,26,30,.48) 100%),
-    url('/sample-songs-background.png') !important;
-  background-size:cover !important;
-  background-position:72% center !important;
-  background-repeat:no-repeat !important;
-  color:#fff;
-}
-#samples.samples::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(24,18,22,.16), rgba(24,18,22,.26));
-}
-#samples.samples > .wrap{
-  position:relative;
-  z-index:1;
-}
-#samples .section-title{
-  max-width:720px;
-  padding:18px 22px 18px 0;
-}
-#samples .eyebrow{
-  color:#E3C98E !important;
-  opacity:1 !important;
+#samples .section-title .eyebrow{
+  color:#F1D59A !important;
   font-weight:900 !important;
-  letter-spacing:.18em !important;
-  text-shadow:0 1px 10px rgba(0,0,0,.32);
+  opacity:1 !important;
+  letter-spacing:.19em !important;
+  text-shadow:0 2px 14px rgba(0,0,0,.65);
 }
 #samples .section-title h2{
   color:#fff !important;
-  text-shadow:0 2px 18px rgba(0,0,0,.34);
+  text-shadow:0 3px 20px rgba(0,0,0,.52);
 }
 #samples .section-title p{
-  color:rgba(255,255,255,.88) !important;
-  text-shadow:0 1px 10px rgba(0,0,0,.28);
+  color:rgba(255,255,255,.94) !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.55);
 }
 #samples .sample-card{
-  background:rgba(49,34,43,.88) !important;
-  border:1px solid rgba(227,201,142,.22) !important;
-  box-shadow:0 14px 34px rgba(0,0,0,.22);
-  backdrop-filter:blur(2px);
+  background:rgba(38,25,34,.84) !important;
+  border:1px solid rgba(241,213,154,.28) !important;
+  box-shadow:0 16px 38px rgba(0,0,0,.24);
+  backdrop-filter:blur(3px);
 }
-#samples .sample-card h3,
-#samples .sample-card p,
-#samples .sample-card strong{
-  color:#fff !important;
-}
-#samples .sample-link,
-#samples .portfolio-cta{
-  color:#E7C77C !important;
-}
-@media(max-width:900px){
-  #samples.samples{
-    background-position:78% center !important;
+@media(max-width:850px){
+  .samples{
+    background-position:82% center;
   }
 }
 </style>
