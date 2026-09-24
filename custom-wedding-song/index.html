@@ -539,6 +539,12 @@
 }
 </style>
 
+
+<style>
+.song-listen-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#4A243B;margin:14px 0 7px}
+.full-song-toggle{display:inline-block;margin-top:10px;border:0;background:transparent;color:#4A243B;font-weight:800;text-decoration:underline;cursor:pointer;font-size:14px;padding:4px 0}
+</style>
+
 </head>
 <body>
 <header>
@@ -547,7 +553,7 @@
       <a class="site-logo" href="/" aria-label="Songs by Splash home"><img src="/songs-by-splash-cream-logo.png" alt="Songs by Splash custom personalized songs"></a>
       <div class="nav-links">
         <a href="/#how">How It Works</a>
-        <a href="/#samples">Samples</a>
+        <a href="#wedding-samples">Samples</a>
         <a href="/#pricing">Pricing</a>
         <a href="/#story">Tell Me Your Story</a>
       </div>
@@ -563,7 +569,7 @@
         <p>A personalized wedding song built from how you met, the memories you still talk about, the places that mean something, the humor only you understand and the words you want your partner to hear.</p>
         <div class="buttons">
           <a class="btn primary" href="/#story">Start Your Wedding Song</a>
-          <a class="btn secondary" href="/#samples">Hear Song Samples</a>
+          <a class="btn secondary" href="#wedding-samples">Hear Song Samples</a>
         </div>
       </div>
       <div class="hero-card">
@@ -575,7 +581,7 @@
     </div>
   </section>
 
-<section class="wedding-sample" id="wedding-sample">
+<section class="wedding-sample" id="wedding-samples">
   <div class="wrap">
     <div class="section-title">
       <div class="eyebrow">Wedding Song Samples</div>
@@ -589,7 +595,9 @@
           <div class="song-type">Mother-Son Dance</div>
           <h3>You Found Your Home</h3>
           <p>A heartfelt song from a mother to her son—watching the little boy she raised grow up, fall in love, and find a home of his own.</p>
-          <audio controls preload="metadata"><source src="/you-found-your-home.mp3" type="audio/mpeg"></audio>
+          <div class="song-listen-label">Listen to a sample</div>
+<audio controls preload="metadata" data-song-player="you-found-your-home"><source src="/you-found-your-home-sample.mp3" type="audio/mpeg"></audio>
+<button class="full-song-toggle" type="button" data-player="you-found-your-home" data-sample="/you-found-your-home-sample.mp3" data-full="/you-found-your-home.mp3">Listen to the full song →</button>
         </div>
       </article>
       <article class="wedding-song-card">
@@ -598,7 +606,9 @@
           <div class="song-type">Father-Daughter Dance</div>
           <h3>All Along</h3>
           <p>A father's song to his daughter, looking back on the little girl he raised and the love that has been there all along.</p>
-          <audio controls preload="metadata"><source src="/all-along.mp3" type="audio/mpeg"></audio>
+          <div class="song-listen-label">Listen to a sample</div>
+<audio controls preload="metadata" data-song-player="all-along"><source src="/all-along-sample.mp3" type="audio/mpeg"></audio>
+<button class="full-song-toggle" type="button" data-player="all-along" data-sample="/all-along-sample.mp3" data-full="/all-along.mp3">Listen to the full song →</button>
         </div>
       </article>
       <article class="wedding-song-card">
@@ -607,7 +617,9 @@
           <div class="song-type">First Dance</div>
           <h3>Leave the Light On</h3>
           <p>A romantic first-dance song about choosing each other, building a life together, and always leaving the light on for the person you love.</p>
-          <audio controls preload="metadata"><source src="/leave-the-light-on.mp3" type="audio/mpeg"></audio>
+          <div class="song-listen-label">Listen to a sample</div>
+<audio controls preload="metadata" data-song-player="leave-the-light-on"><source src="/leave-the-light-on-sample.mp3" type="audio/mpeg"></audio>
+<button class="full-song-toggle" type="button" data-player="leave-the-light-on" data-sample="/leave-the-light-on-sample.mp3" data-full="/leave-the-light-on.mp3">Listen to the full song →</button>
         </div>
       </article>
       <article class="wedding-song-card">
@@ -616,7 +628,9 @@
           <div class="song-type">Best Man Toast</div>
           <h3>She Said Yes Anyway</h3>
           <p>A funny, personal wedding toast turned into a song—part roast, part tribute, and made for a best friend.</p>
-          <audio controls preload="metadata"><source src="/she-said-yes-anyway.mp3" type="audio/mpeg"></audio>
+          <div class="song-listen-label">Listen to a sample</div>
+<audio controls preload="metadata" data-song-player="she-said-yes-anyway"><source src="/she-said-yes-anyway-sample.mp3" type="audio/mpeg"></audio>
+<button class="full-song-toggle" type="button" data-player="she-said-yes-anyway" data-sample="/she-said-yes-anyway-sample.mp3" data-full="/she-said-yes-anyway.mp3">Listen to the full song →</button>
         </div>
       </article>
     </div>
@@ -690,6 +704,21 @@
 <script>
 (function () {
 
+</script>
+
+
+<script>
+document.querySelectorAll('.full-song-toggle').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var player = document.querySelector('[data-song-player="' + btn.dataset.player + '"]');
+    var source = player.querySelector('source');
+    var showingFull = source.getAttribute('src') === btn.dataset.full;
+    source.setAttribute('src', showingFull ? btn.dataset.sample : btn.dataset.full);
+    player.load();
+    player.play().catch(function(){});
+    btn.textContent = showingFull ? 'Listen to the full song →' : 'Back to sample';
+  });
+});
 </script>
 
 </body>
